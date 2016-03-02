@@ -1,0 +1,36 @@
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+}
+
+.main {
+    background-color: turquoise;
+    height: 400px;
+    width: 400px;
+    margin: 0 auto;
+    border: 3px solid #73AD21;
+
+}
+
+h2 {
+    text-align: center;
+}
+
+li {
+    list-style: none;
+    background-color: #dcf5f5;
+    margin: 2px;
+    padding: 5px;
+}
+
+ul { 
+    padding-left:0; list-style-position:inside; 
+}
+
+.x {
+    float: right;
+}
+
+.x:hover {
+    background-color: lightpink;
+}

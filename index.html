@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Angular Shopping Cart</title>
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    </head>
+    <body>
+        <script>
+var app = angular.module("myShoppingList", []); 
+app.controller("myCtrl", function($scope) {
+    $scope.products = ["Milk", "Bread", "Cheese"];
+     $scope.addItem = function () {
+         $scope.errortext = "";
+        if (!$scope.addMe) {return;}
+        if ($scope.products.indexOf($scope.addMe) == -1) {
+            $scope.products.push($scope.addMe);
+        } else {
+            $scope.errortext = "The item is already in your shopping list.";
+        }
+    } 
+    $scope.removeItem = function (x) {
+                $scope.errortext = "";
+        $scope.products.splice(x, 1);
+    } 
+});
+</script>
+
+<div class='main' ng-app="myShoppingList" ng-controller="myCtrl">
+    <h2>My Shopping Cart</h2>
+    <hr>
+    <ul>
+        <li ng-repeat="x in products">{{x}}
+            <span class="x" ng-click="removeItem($index)">&times;</span>
+        </li>
+    </ul>
+    <input ng-model="addMe">
+    <button ng-click="addItem()">Add</button>
+        <p>{{errortext}}</p>
+
+</div>
+</body>
+</html>
